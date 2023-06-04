@@ -1,0 +1,6 @@
+<input [(ngModel)]="productUrl" placeholder="Enter Flipkart Product URL" />
+<button (click)="getProductDetails()">Get Details</button>
+<div *ngIf="product">
+    <!-- <h2>{{ product.productId }}</h2> -->
+    <p>Product Name: {{ product.productName }}</p>
+</div>

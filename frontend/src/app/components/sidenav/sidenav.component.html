@@ -1,0 +1,79 @@
+<div class="bg-slate-100">
+    <div class="hidden sm:hidden md:block lg:block xl:block">
+        <ul class="menu p-8 text-base-900  bg-slate-100">
+            <!-- Sidebar content here -->
+            <div class="flex justify-center m-5">
+                <div class="block w-full p-2 rounded-lg shadow-lg bg-white max-w-sm">
+                    <ul class="relative">
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="/laptops" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">laptop_mac</mat-icon>Laptops</a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="#" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">music_note</mat-icon>Home theater</a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="#" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">camera</mat-icon>Digital cameras</a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="#" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">phone_iphone</mat-icon>Smartphones</a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="#" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">tv</mat-icon>Television Set</a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="#" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">watch</mat-icon>Wearable devices</a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="#" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">videogame_asset</mat-icon>Gaming consoles</a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="#" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">tablet_mac</mat-icon>Tablets</a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="#" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">computer</mat-icon>Desktop computers</a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex items-center text-base font-medium py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                                data-mdb-ripple="true" href="#" data-mdb-ripple-color="dark">
+                                <mat-icon class="mr-3">speaker</mat-icon>Portable audio</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex justify-center m-5">
+                <div
+                    class="block w-full p-6 rounded-lg shadow-lg bg-zinc-900 max-w-sm text-white text-center justify-center">
+                    <p>Latest News Updates</p>
+                    <div id="carouselExampleSlidesOnly" class="carousel slide relative" data-bs-ride="carousel">
+                        <div class="carousel-inner relative w-full overflow-hidden">
+                            <div class="carousel-item active relative float-left w-full"
+                                *ngFor="let item of news; let index = index; let isFirst = first"
+                                [ngClass]="{ active: isFirst }">
+                                <img class="rounded-lg pb-5" src="{{item.urlToImage}}" alt="{{item.source.id}}">
+                                <a href="{{item.url}}">{{item.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </div>
+</div>

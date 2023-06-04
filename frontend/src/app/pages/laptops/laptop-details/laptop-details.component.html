@@ -1,0 +1,246 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 bg-slate-100">
+    <div>
+        <app-sidenav></app-sidenav>
+    </div>
+    <div class="col-span-3 sm:mt-2 md:mt-10">
+        <div *ngFor="let laptop of laptopArr">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-8 xl:grid-cols-8 gap-1 lg:mt-2">
+                <div class="col-span-3 pl-32">
+                    <p class="text-3xl font-bold font-sans pt-10 text-gray-500">{{laptop.brand}}</p>
+                    <div class="flex">
+                        <p class="text-2xl font-bold font-sans pt-5 text-gray-600">$340.00</p>
+                        <p class="text-2xl font-bold font-sans pl-10 pt-5 text-gray-400 line-through">$1299.00</p>
+                    </div>
+                    <div class="pt-5 pb-8">
+                        <button class="bg-orange-500 p-2 pl-16 pr-16 rounded-md shadow-orange-300 shadow-md font-medium text-white">Save for later</button>
+                    </div>
+                    <div class="border-4 rounded-2xl mb-3">
+                        <p class="text-2xl font-extrabold text-gray-900 pl-5 pt-2 pb-3">Keys Specs</p>
+                        <p class="text-lg font-semibold text-gray-500 pl-5">{{laptop.processor}}</p>
+                        <p class="text-lg font-semibold text-gray-500 pl-5">{{laptop.capacity}}</p> 
+                        <p class="text-lg font-semibold text-gray-500 pl-5">{{laptop.ssdCapacity}}</p>
+                        <p class="text-lg font-semibold text-gray-500 pl-5">{{laptop.os}}</p>
+                    </div>
+                    <div class="border-4 rounded-2xl text-md font-semibold text-gray-500 pl-5 pt-3 pb-3 text-center">
+                        Need some help? Contact us
+                    </div>
+                </div>
+                <div class="col-span-5 grid justify-self-center pt-5 max-w-xl max-h-fit mb-5 gap-4">
+                    <div class="row">
+                        <img class="rounded-3xl" [src]="laptop.image1" alt="" #largeImage>
+                    </div>
+                    <div class="row">
+                        <div class="grid grid-cols-5 gap-2 justify-items-center">
+                            <img class="border-4 border-orange-500 rounded-md p-2 aspect-w-1 aspect-h-1 w-20 h-20 col-span-1" 
+                            src="{{laptop.image1}}" alt="" (click)="largeImage.src = laptop.image1">
+                            <img class="border-4 border-orange-500 rounded-md p-2 aspect-w-1 aspect-h-1 w-20 h-20 col-span-1" 
+                            src="{{laptop.image2}}" alt="" (click)="largeImage.src = laptop.image2">
+                            <img class="border-4 border-orange-500 rounded-md p-2 aspect-w-1 aspect-h-1 w-20 h-20 col-span-1" 
+                            src="{{laptop.image3}}" alt="" (click)="largeImage.src = laptop.image3">
+                            <img class="border-4 border-orange-500 rounded-md p-2 aspect-w-1 aspect-h-1 w-20 h-20 col-span-1" 
+                            src="{{laptop.image4}}" alt="" (click)="largeImage.src = laptop.image4">
+                            <img class="border-4 border-orange-500 rounded-md p-2 aspect-w-1 aspect-h-1 w-20 h-20 col-span-1" 
+                            src="{{laptop.image5}}" alt="" (click)="largeImage.src = laptop.image5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-3 mr-5 mb-5 rounded-lg">
+                <p class="text-xl font-bold pt-4 pb-4 pr-4">
+                    Product Information
+                </p>
+                <div class="grid lg:grid-cols-7 md:grid-cols-7">
+                    <div class="col-span-2">
+                        <p class="text-lg text-gray-500">General Information</p>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Brand</p>
+                            <p class="col-span-3">{{laptop.brand}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Model</p>
+                            <p class="col-span-3">{{laptop.model}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Weight</p>
+                            <p class="col-span-3">{{laptop.weight}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Colour</p>
+                            <p class="col-span-3">{{laptop.colour}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Operating System</p>
+                            <p class="col-span-3">{{laptop.os}}</p>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider class="pt-4"></mat-divider>
+                <div class="grid lg:grid-cols-7 md:grid-cols-7">
+                    <div class="col-span-2">
+                        <p class="text-lg text-gray-500">Display Details</p>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Display Size</p>
+                            <p class="col-span-3">{{laptop.displaySize}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Display Resolution</p>
+                            <p class="col-span-3">{{laptop.displayResolution}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Pixel Density</p>
+                            <p class="col-span-3">{{laptop.pixelDensity}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Display Type</p>
+                            <p class="col-span-3">{{laptop.displayType}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Display Features</p>
+                            <p class="col-span-3">{{laptop.displayFeatures}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Touchscreen</p>
+                            <p class="col-span-3">{{laptop.touchscreen}}</p>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider class="pt-4"></mat-divider>
+                <div class="grid lg:grid-cols-7 md:grid-cols-7">
+                    <div class="col-span-2">
+                        <p class="text-lg text-gray-500">Performance</p>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Processor</p>
+                            <p class="col-span-3">{{laptop.processor}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Clock-speed</p>
+                            <p class="col-span-3">{{laptop.clockSpeed}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Graphic Processor</p>
+                            <p class="col-span-3">{{laptop.graphicProcessor}}</p>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider class="pt-4"></mat-divider>
+                <div class="grid lg:grid-cols-7 md:grid-cols-7">
+                    <div class="col-span-2">
+                        <p class="text-lg text-gray-500">Memory</p>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Capacity</p>
+                            <p class="col-span-3">{{laptop.capacity}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">RAM type</p>
+                            <p class="col-span-3">{{laptop.ramType}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Memory Slots</p>
+                            <p class="col-span-3">{{laptop.memorySlots}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Memory Layout</p>
+                            <p class="col-span-3">{{laptop.memoryLayout}}</p>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider class="pt-4"></mat-divider>
+                <div class="grid lg:grid-cols-7 md:grid-cols-7">
+                    <div class="col-span-2">
+                        <p class="text-lg text-gray-500">Storage</p>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">SSD Capacity</p>
+                            <p class="col-span-3">{{laptop.ssdCapacity}}</p>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider class="pt-4"></mat-divider>
+                <div class="grid lg:grid-cols-7 md:grid-cols-7">
+                    <div class="col-span-2">
+                        <p class="text-lg text-gray-500">Battery</p>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Battery Cell</p>
+                            <p class="col-span-3">{{laptop.batteryCell}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Battery type</p>
+                            <p class="col-span-3">{{laptop.batterytype}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Power Supply</p>
+                            <p class="col-span-3">{{laptop.powerSupply}}</p>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider class="pt-4"></mat-divider>
+                <div class="grid lg:grid-cols-7 md:grid-cols-7">
+                    <div class="col-span-2">
+                        <p class="text-lg text-gray-500">Ports</p>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">USB 2.0 slots</p>
+                            <p class="col-span-3">{{laptop.usbSlot}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Headphone Jack</p>
+                            <p class="col-span-3">{{laptop.headphoneJack}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Microphone Jack</p>
+                            <p class="col-span-3">{{laptop.microphoneJack}}</p>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider class="pt-4"></mat-divider>
+                <div class="grid lg:grid-cols-7 md:grid-cols-7">
+                    <div class="col-span-2">
+                        <p class="text-lg text-gray-500">Networking</p>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Wireless LAN</p>
+                            <p class="col-span-3">{{laptop.wirelessLAN}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Wi-Fi Version</p>
+                            <p class="col-span-3">{{laptop.wifiVersion}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Bluetooth</p>
+                            <p class="col-span-3">{{laptop.bluetooth}}</p>
+                        </div>
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Bluetooth Version</p>
+                            <p class="col-span-3">{{laptop.bluetoothVersion}}</p>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider class="pt-4"></mat-divider>
+                <div class="grid lg:grid-cols-7 md:grid-cols-7">
+                    <div class="col-span-2">
+                        <p class="text-lg text-gray-500">Others</p>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5">
+                            <p class="col-span-2 font-bold">Warranty</p>
+                            <p class="col-span-3">{{laptop.warranty}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

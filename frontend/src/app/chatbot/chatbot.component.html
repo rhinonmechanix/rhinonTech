@@ -1,0 +1,54 @@
+
+<!-- <div id="voicesearch">
+  <input #searchKey id="searchKey" type="hidden">
+  <button class="button-mic font-sans font-extrabold text-lg" (click)="voiceSearch($event)" id="icon-mic">
+    {{micTitle}}
+  </button>
+</div>
+
+<form class="mb-4" (ngSubmit)="sendMessage()">
+  <div class="mb-4">
+    <label class="block text-gray-700 font-bold mb-2" for="input">
+      Ask Me
+    </label>
+    <input [(ngModel)]="message" name="message" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="input" type="text" required>
+    </div>
+  <div class="mb-6">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+      Submit
+    </button>
+  </div>
+</form>
+
+{{returnMessage}} -->
+
+<div class="container mx-auto">
+  <div class="max-w-lg mx-auto">
+    <div class="flex flex-col space-y-2">
+      <div *ngFor="let message of sendChatMessage.messages">
+        <div class="flex justify-end" *ngIf="message.role === 'user'">
+          <p class="bg-blue-400 py-2 px-4 rounded-lg text-white ml-2">{{ message.content }}</p>
+        </div>
+        <div class="flex justify-start" *ngIf="message.role === 'assistant'">
+          <p class="bg-gray-200 py-2 px-4 rounded-lg ml-2">{{ message.content }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex space-x-2 mt-4">
+      <input type="text" [(ngModel)]="message" placeholder="Type your message" class="flex-grow border border-gray-300 rounded-lg py-2 px-4">
+      <input type="text" [(ngModel)]="message" placeholder="Type your message" class="flex-grow border border-gray-300 rounded-lg py-2 px-4" #searchKey id="searchKey" type="hidden">
+      <!-- <input #searchKey id="searchKey" type="hidden"> -->
+      <button (click)="voiceSearch()" class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg">
+        <i [class]="'fas fa-microphone'"></i>
+      </button>
+      <button (click)="sendMessage()" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg">Send</button>
+    </div>
+    <button (click)="speakWithVoices()">Speak with Voices</button>
+    
+    <!-- <button (click)="voices()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+      Get Voices
+    </button> -->
+    
+  </div>
+</div>

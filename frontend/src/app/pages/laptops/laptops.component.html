@@ -1,0 +1,39 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 bg-slate-100">
+    <div>
+        <app-sidenav></app-sidenav>
+    </div>
+    <div class="col-span-3 sm:mt-2 md:mt-10">
+        <div class="grid lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-1">
+            <div class="col-span-3">
+                <p class="text-3xl text-center lg:text-left pt-1 font-extrabold">Laptops</p>
+            </div>
+            <div class="flex flex-wrap col-span-2 justify-center">
+                <div class="mx-2 my-2">
+                    <div class="relative">
+                        <!-- <mat-icon>search</mat-icon> -->
+                        <input id="search"
+                            class=" rounded-3xl  focus:outline-none bg-white font-normal w-64 h-10 flex items-center pl-12 text-sm shadow"
+                            placeholder="Search the product here" />
+                    </div>
+                </div>
+                <button
+                    class="rounded-3xl mx-2 my-2 bg-orange-500 hover:bg-orange-400  text-gray-100 border px-6 py-2 text-xs">
+                    search
+                </button>
+            </div>
+        </div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 pt-6 gap-8 lg:mr-10 lg:mt-2">
+            <a class="rounded-xl bg-white shadow-md justify-center text-center p-5 grid grid-rows-5
+                    hover:scale-105 hover:shadow-lg transition duration-500 ease-in-out" *ngFor="let laptop of laptopArr" (click)="onClick(laptop)">
+                <div class="flex flex-wrap justify-center row-span-3">
+                  <img src="{{laptop.image1}}" class="w-xs h-50" alt="" />
+                </div>
+                <div class="row-span-2">
+                    <p class="text-xs font-bold uppercase pt-8 text-orange-500">{{laptop.model}}</p>
+                    <p class="text-xs font-extrabold pt-2 uppercase text-gray-500">Gaming Studio</p>
+                    <p class="text-xs font-bold pt-2 text-gray-900">Starting from $0.99</p>
+                </div>
+            </a> 
+        </div>
+    </div>
+</div>
