@@ -15,8 +15,8 @@ export const environment = {
     appId: '',
     measurementId: ''
   },
-  baseUrl: 'http://localhost:3000',
-  // baseUrl: 'https://rhinontech.onrender.com'
+  // baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://rhinontech.onrender.com'
 };
 
 /*
