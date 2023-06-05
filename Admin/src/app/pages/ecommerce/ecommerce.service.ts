@@ -11,6 +11,7 @@ const accessToken = localStorage.getItem('token')
 export class EcommerceService {
   private uploadUrl: string = environment.baseUrl + "/users/laptop";
   private getLaptop: string = environment.baseUrl + "/users/laptop";
+  private changeLaptop: string = environment.baseUrl + "/users/laptops";
   // private deleteLaptopById: string = environment.baseUrl + "/users/laptops";
 
   constructor(
@@ -28,7 +29,7 @@ export class EcommerceService {
   }
 
   deleteLaptop(id: any): Observable<any> {
-    const url = `http://localhost:3000/users/laptops/${id}`;
+    const url = `${this.changeLaptop}/${id}`;
     let Httpheaders = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${accessToken}`); // Include the token in the headers
@@ -41,11 +42,19 @@ export class EcommerceService {
   }
 
   updateLaptop(id: any, data: any): Observable<any> {
-    const url = `http://localhost:3000/users/laptops/${id}`;
+    const url = `${this.changeLaptop}/${id}`;
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${accessToken}`);
 
     return this.http.put<any>(url, data, { headers });
+  }
+
+  getLaptopById(id: any): Observable<any> {
+    const url = `${this.changeLaptop}/${id}`;
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${accessToken}`);
+
+    return this.http.get<any>(url, { headers });
   }
 }

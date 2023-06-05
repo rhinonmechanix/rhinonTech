@@ -148,25 +148,4 @@ export class CustomersComponent implements OnInit {
     });
   }
 
-
-  // deleteLaptop1(id: any) {
-  //   const index = this.laptops.findIndex((item) => item._id === id);
-  //   if (index !== -1) {
-  //     this.laptops.splice(index, 1);
-  //     this.laptopService.deleteLaptop(id).subscribe(
-  //       (response) => {
-  //         if (response.message === 'Success') {
-  //           this.successmsg();
-  //           console.log(this.laptops);
-  //         }
-  //       },
-  //       (error) => {
-  //         console.error('Error deleting laptop:', error);
-  //         // Handle any errors
-  //       }
-  //     );
-  //   }
-  // }
-  
-
 }
