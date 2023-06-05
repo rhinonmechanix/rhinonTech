@@ -1,0 +1,417 @@
+<div class="container-fluid">
+  <app-pagetitle title="Add Product" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <aw-wizard>
+            <aw-wizard-step stepTitle="Basic Info">
+              <div class="tab-pane" id="basic-info">
+                <h4 class="card-title">Basic Information</h4>
+                <p class="card-title-desc">Fill all information below</p>
+
+                <form>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label">Category</label>
+                        <select class="form-control select2">
+                          <option>Select</option>
+                          <option value="Electronic">Electronic</option>
+                          <option value="Fashion">Fashion</option>
+                          <option value="Fitness">Fitness</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="productname">Price</label>
+                        <input [(ngModel)]='uploadOjb.price' name="price" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="productname">Laptop Model</label>
+                        <input [(ngModel)]='uploadOjb.model' name="model" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="control-label">Laptop Brand</label>
+                        <select [(ngModel)]='uploadOjb.brand' name="brand" class="form-control select2">
+                          <option>Select</option>
+                          <option value="Lenovo">Lenovo</option>
+                          <option value="Acer">Acer</option>
+                          <option value="HP">HP</option>
+                          <option value="Dell">Dell</option>
+                          <option value="Asus">Asus</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="manufacturerbrand">Weight</label>
+                        <input [(ngModel)]='uploadOjb.weight' name="weight" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="price">Colour</label>
+                        <input [(ngModel)]='uploadOjb.colour' name="colour" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="control-label">Features</label>
+                        <ng-select [(ngModel)]='uploadOjb.model' [items]="selectValue" [multiple]="true"></ng-select>
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="productname">Image 1</label>
+                        <input [(ngModel)]='uploadOjb.image1' name="image1" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="productname">Image 2</label>
+                        <input [(ngModel)]='uploadOjb.image2' name="image2" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="productname">Image 3</label>
+                        <input [(ngModel)]='uploadOjb.image3' name="image3" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="productname">Image 4</label>
+                        <input [(ngModel)]='uploadOjb.image4' name="image4" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label for="productname">Image 5</label>
+                        <input [(ngModel)]='uploadOjb.image5' name="image5" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label">Operating System</label>
+                        <select [(ngModel)]='uploadOjb.os' name="os" class="form-control select2">
+                          <option>Select</option>
+                          <option value="4 GB">4 GB</option>
+                          <option value="6 GB">6 GB</option>
+                          <option value="8 GB">8 GB</option>
+                          <option value="16 GB">16 GB</option>
+                          <option value="32 GB">32 GB</option>
+                          <option value="64 GB">64 GB</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="productname">Display Size</label>
+                        <input [(ngModel)]='uploadOjb.displaySize' name="displaySize" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="productname">Display Resolution</label>
+                        <input [(ngModel)]='uploadOjb.displayResolution' name="displayResolution" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="manufacturername">Pixel Density</label>
+                        <input [(ngModel)]='uploadOjb.pixelDensity' name="pixelDensity" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="manufacturerbrand">Display Type</label>
+                        <input [(ngModel)]='uploadOjb.displayType' name="displayType" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="price">Display Features</label>
+                        <input [(ngModel)]='uploadOjb.displayFeatures' name="displayFeatures" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="control-label">Touchscreen</label>
+                        <select [(ngModel)]='uploadOjb.touchscreen' name="touchscreen" class="form-control select2">
+                          <option>Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="productname">Processor</label>
+                        <input [(ngModel)]='uploadOjb.processor' name="processor" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label for="manufacturername">Clock-speed</label>
+                        <input [(ngModel)]='uploadOjb.clockSpeed' name="clockSpeed" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label for="manufacturerbrand">Graphic Processor</label>
+                        <input [(ngModel)]='uploadOjb.graphicProcessor' name="graphicProcessor" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="control-label">Capacity</label>
+                        <select [(ngModel)]='uploadOjb.capacity' name="capacity" class="form-control select2">
+                          <option>Select</option>
+                          <option value="EL">4 GB</option>
+                          <option value="FA">6 GB</option>
+                          <option value="FI">8 GB</option>
+                          <option value="EL">16 GB</option>
+                          <option value="FA">32 GB</option>
+                          <option value="FI">64 GB</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="control-label">RAM type</label>
+                        <select [(ngModel)]='uploadOjb.ramType' name="ramType" class="form-control select2">
+                          <option>Select</option>
+                          <option value="EL">4 GB</option>
+                          <option value="FA">6 GB</option>
+                          <option value="FI">8 GB</option>
+                          <option value="EL">16 GB</option>
+                          <option value="FA">32 GB</option>
+                          <option value="FI">64 GB</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="control-label">Memory Slots</label>
+                        <select [(ngModel)]='uploadOjb.memorySlots' name="memorySlots" class="form-control select2">
+                          <option>Select</option>
+                          <option value="EL">4 GB</option>
+                          <option value="FA">6 GB</option>
+                          <option value="FI">8 GB</option>
+                          <option value="EL">16 GB</option>
+                          <option value="FA">32 GB</option>
+                          <option value="FI">64 GB</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="productname">Memory Layout</label>
+                        <input [(ngModel)]='uploadOjb.memoryLayout' name="memoryLayout" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="control-label">SSD Capacity</label>
+                        <select [(ngModel)]='uploadOjb.ssdCapacity' name="ssdCapacity" class="form-control select2">
+                          <option>Select</option>
+                          <option value="EL">4 GB</option>
+                          <option value="FA">6 GB</option>
+                          <option value="FI">8 GB</option>
+                          <option value="EL">16 GB</option>
+                          <option value="FA">32 GB</option>
+                          <option value="FI">64 GB</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="manufacturerbrand">Battery Cell</label>
+                        <input [(ngModel)]='uploadOjb.batteryCell' name="batteryCell" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="price">Battery type</label>
+                        <input [(ngModel)]='uploadOjb.batterytype' name="batterytype" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="control-label">Power Supply</label>
+                        <select [(ngModel)]='uploadOjb.powerSupply' name="powerSupply" class="form-control select2">
+                          <option>Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="control-label">Wireless LAN</label>
+                        <select [(ngModel)]='uploadOjb.wirelessLAN' name="wirelessLAN" class="form-control select2">
+                          <option>Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="control-label">Wi-Fi Version</label>
+                        <select [(ngModel)]='uploadOjb.wifiVersion' name="wifiVersion" class="form-control select2">
+                          <option>Select</option>
+                          <option value="EL">4 GB</option>
+                          <option value="FA">6 GB</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="control-label">Bluetooth</label>
+                        <select [(ngModel)]='uploadOjb.bluetooth' name="bluetooth" class="form-control select2">
+                          <option>Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="control-label">Bluetooth Version</label>
+                        <select [(ngModel)]='uploadOjb.bluetoothVersion' name="bluetoothVersion" class="form-control select2">
+                          <option>Select</option>
+                          <option value="EL">4 GB</option>
+                          <option value="FA">6 GB</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="control-label">USB 2.0 slots</label>
+                        <select [(ngModel)]='uploadOjb.usbSlot' name="usbSlot" class="form-control select2">
+                          <option>Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label">Headphone Jack</label>
+                        <select [(ngModel)]='uploadOjb.headphoneJack' name="headphoneJack" class="form-control select2">
+                          <option>Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label">Microphone Jack</label>
+                        <select [(ngModel)]='uploadOjb.microphoneJack' name="microphoneJack" class="form-control select2">
+                          <option>Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="manufacturername">Warranty</label>
+                        <input [(ngModel)]='uploadOjb.warranty' name="warranty" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="productdesc">Product Description</label>
+                    <textarea class="form-control" id="productdesc" rows="5"></textarea>
+                  </div> -->
+                  <button type="button" (click)="sendData()" class="btn btn-primary">Add Laptop</button>
+                </form>
+              </div>
+            </aw-wizard-step>
+            <!-- <aw-wizard-step stepTitle="Product Img" awOptionalStep>
+              <div class="tab-pane" id="product-img">
+                <h4 class="card-title">Product Images</h4>
+                <p class="card-title-desc">Upload product image</p>
+                <dropzone class="dropzone"></dropzone>
+              </div>
+              <button type="button" awPreviousStep class="btn btn-primary">Go to previous step</button>
+              <button type="button" awNextStep class="btn btn-primary">Go to next step</button>
+            </aw-wizard-step>
+            <aw-wizard-step stepTitle="Meta Data">
+              <div class="tab-pane" id="metadata">
+                <h4 class="card-title">Meta Data</h4>
+                <p class="card-title-desc">Fill all information below</p>
+
+                <form>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="metatitle">Meta title</label>
+                        <input [(ngModel)]='uploadOjb.model' id="metatitle" name="metatitle" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="metakeywords">Meta Keywords</label>
+                        <input [(ngModel)]='uploadOjb.model' id="metakeywords" name="metakeywords" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="metadescription">Meta Description</label>
+                    <textarea class="form-control" id="metadescription" rows="5"></textarea>
+                  </div>
+                </form>
+                <div class="text-center mt-4">
+                  <button type="submit" class="btn btn-primary mr-2 waves-effect waves-light">Save Changes</button>
+                  <button type="submit" class="btn btn-light waves-effect">Cancel</button>
+                </div>
+              </div>
+              <div class="pager wizard twitter-bs-wizard-pager-link">
+                <button class="btn btn-primary" awPreviousStep>Previous Step</button>
+                <button type="button" class="btn btn-primary">Finish</button>
+              </div>
+            </aw-wizard-step> -->
+          </aw-wizard>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

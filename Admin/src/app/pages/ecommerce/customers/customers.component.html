@@ -1,0 +1,492 @@
+<div class="container-fluid">
+  <app-pagetitle title="Customers" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <!--  -->
+            <!-- <a href="javascript:void(0);" class="btn btn-success mb-2" (click)="openModal(content)">
+              <i class="mdi mdi-plus mr-2"></i> Add Customer
+            </a> -->
+          </div>
+          <div class="table-responsive mt-3">
+            <table class="table table-centered datatable dt-responsive nowrap"
+              style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+              <thead class="thead-light">
+                <tr>
+                  <th style="width: 20px;">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customercheck" />
+                      <label class="custom-control-label" for="customercheck">&nbsp;</label>
+                    </div>
+                  </th>
+                  <th>Laptop Id</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Price</th>
+                  <th style="width: 120px;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of laptops; let i = index">
+                  <td>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" [id]="'customercheck' + i" />
+                      <label class="custom-control-label" [for]="'customercheck' + i">&nbsp;</label>
+                    </div>
+                  </td>
+                  <td>{{ item._id }}</td>
+                  <td>{{ item.brand }}</td>
+                  <td>{{ item.model }}</td>
+                  <td>{{ item.price }}</td>
+                  <td>
+                    <a class="mr-3 text-primary" title="Edit" (click)="extraLarge(exlargeModal,item._id)">
+                      <i class="mdi mdi-pencil font-size-18"></i>
+                    </a>
+                    <a class="text-danger" title="Delete" (click)="deleteLaptop(item._id)">
+                      <i class="mdi mdi-trash-can font-size-18"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #exlargeModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Extra large modal </h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label">Category</label>
+            <select class="form-control select2">
+              <option>Select</option>
+              <option value="Electronic">Electronic</option>
+              <option value="Fashion">Fashion</option>
+              <option value="Fitness">Fitness</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="productname">Price</label>
+            <input [(ngModel)]='uploadObj.price' name="price" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="productname">Laptop Model</label>
+            <input [(ngModel)]='uploadObj.model' name="model" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label class="control-label">Laptop Brand</label>
+            <select [(ngModel)]='uploadObj.brand' name="brand" class="form-control select2">
+              <option>Select</option>
+              <option value="Lenovo">Lenovo</option>
+              <option value="Acer">Acer</option>
+              <option value="HP">HP</option>
+              <option value="Dell">Dell</option>
+              <option value="Asus">Asus</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="manufacturerbrand">Weight</label>
+            <input [(ngModel)]='uploadObj.weight' name="weight" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="price">Colour</label>
+            <input [(ngModel)]='uploadObj.colour' name="colour" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Features</label>
+            <ng-select [(ngModel)]='uploadObj.model' [items]="selectValue" [multiple]="true"></ng-select>
+          </div>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="productname">Image 1</label>
+            <input [(ngModel)]='uploadObj.image1' name="image1" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="productname">Image 2</label>
+            <input [(ngModel)]='uploadObj.image2' name="image2" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="productname">Image 3</label>
+            <input [(ngModel)]='uploadObj.image3' name="image3" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="productname">Image 4</label>
+            <input [(ngModel)]='uploadObj.image4' name="image4" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="form-group">
+            <label for="productname">Image 5</label>
+            <input [(ngModel)]='uploadObj.image5' name="image5" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label">Operating System</label>
+            <select [(ngModel)]='uploadObj.os' name="os" class="form-control select2">
+              <option>Select</option>
+              <option value="4 GB">4 GB</option>
+              <option value="6 GB">6 GB</option>
+              <option value="8 GB">8 GB</option>
+              <option value="16 GB">16 GB</option>
+              <option value="32 GB">32 GB</option>
+              <option value="64 GB">64 GB</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="productname">Display Size</label>
+            <input [(ngModel)]='uploadObj.displaySize' name="displaySize" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="productname">Display Resolution</label>
+            <input [(ngModel)]='uploadObj.displayResolution' name="displayResolution" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="manufacturername">Pixel Density</label>
+            <input [(ngModel)]='uploadObj.pixelDensity' name="pixelDensity" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="manufacturerbrand">Display Type</label>
+            <input [(ngModel)]='uploadObj.displayType' name="displayType" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="price">Display Features</label>
+            <input [(ngModel)]='uploadObj.displayFeatures' name="displayFeatures" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Touchscreen</label>
+            <select [(ngModel)]='uploadObj.touchscreen' name="touchscreen" class="form-control select2">
+              <option>Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="productname">Processor</label>
+            <input [(ngModel)]='uploadObj.processor' name="processor" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label for="manufacturername">Clock-speed</label>
+            <input [(ngModel)]='uploadObj.clockSpeed' name="clockSpeed" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label for="manufacturerbrand">Graphic Processor</label>
+            <input [(ngModel)]='uploadObj.graphicProcessor' name="graphicProcessor" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label class="control-label">Capacity</label>
+            <select [(ngModel)]='uploadObj.capacity' name="capacity" class="form-control select2">
+              <option>Select</option>
+              <option value="EL">4 GB</option>
+              <option value="FA">6 GB</option>
+              <option value="FI">8 GB</option>
+              <option value="EL">16 GB</option>
+              <option value="FA">32 GB</option>
+              <option value="FI">64 GB</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label class="control-label">RAM type</label>
+            <select [(ngModel)]='uploadObj.ramType' name="ramType" class="form-control select2">
+              <option>Select</option>
+              <option value="EL">4 GB</option>
+              <option value="FA">6 GB</option>
+              <option value="FI">8 GB</option>
+              <option value="EL">16 GB</option>
+              <option value="FA">32 GB</option>
+              <option value="FI">64 GB</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Memory Slots</label>
+            <select [(ngModel)]='uploadObj.memorySlots' name="memorySlots" class="form-control select2">
+              <option>Select</option>
+              <option value="EL">4 GB</option>
+              <option value="FA">6 GB</option>
+              <option value="FI">8 GB</option>
+              <option value="EL">16 GB</option>
+              <option value="FA">32 GB</option>
+              <option value="FI">64 GB</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="productname">Memory Layout</label>
+            <input [(ngModel)]='uploadObj.memoryLayout' name="memoryLayout" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label class="control-label">SSD Capacity</label>
+            <select [(ngModel)]='uploadObj.ssdCapacity' name="ssdCapacity" class="form-control select2">
+              <option>Select</option>
+              <option value="EL">4 GB</option>
+              <option value="FA">6 GB</option>
+              <option value="FI">8 GB</option>
+              <option value="EL">16 GB</option>
+              <option value="FA">32 GB</option>
+              <option value="FI">64 GB</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="manufacturerbrand">Battery Cell</label>
+            <input [(ngModel)]='uploadObj.batteryCell' name="batteryCell" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="price">Battery type</label>
+            <input [(ngModel)]='uploadObj.batterytype' name="batterytype" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Power Supply</label>
+            <select [(ngModel)]='uploadObj.powerSupply' name="powerSupply" class="form-control select2">
+              <option>Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Wireless LAN</label>
+            <select [(ngModel)]='uploadObj.wirelessLAN' name="wirelessLAN" class="form-control select2">
+              <option>Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label class="control-label">Wi-Fi Version</label>
+            <select [(ngModel)]='uploadObj.wifiVersion' name="wifiVersion" class="form-control select2">
+              <option>Select</option>
+              <option value="EL">4 GB</option>
+              <option value="FA">6 GB</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label class="control-label">Bluetooth</label>
+            <select [(ngModel)]='uploadObj.bluetooth' name="bluetooth" class="form-control select2">
+              <option>Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label class="control-label">Bluetooth Version</label>
+            <select [(ngModel)]='uploadObj.bluetoothVersion' name="bluetoothVersion" class="form-control select2">
+              <option>Select</option>
+              <option value="EL">4 GB</option>
+              <option value="FA">6 GB</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label class="control-label">USB 2.0 slots</label>
+            <select [(ngModel)]='uploadObj.usbSlot' name="usbSlot" class="form-control select2">
+              <option>Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label">Headphone Jack</label>
+            <select [(ngModel)]='uploadObj.headphoneJack' name="headphoneJack" class="form-control select2">
+              <option>Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label">Microphone Jack</label>
+            <select [(ngModel)]='uploadObj.microphoneJack' name="microphoneJack" class="form-control select2">
+              <option>Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="manufacturername">Warranty</label>
+            <input [(ngModel)]='uploadObj.warranty' name="warranty" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <label for="productdesc">Product Description</label>
+        <textarea class="form-control" id="productdesc" rows="5"></textarea>
+      </div> -->
+      <button type="button" (click)="updateLaptop(currentLaptopId)" class="btn btn-primary">Add Laptop</button>
+    </form>
+  </div>
+</ng-template>
+
+<!-- Contacts model  -->
+<!-- <ng-template #content role="document" let-modal="close">
+  <div class="modal-header">
+    <h5 class="modal-title">Add Contacts</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body p-3">
+    <div class="text-left">
+      <form (ngSubmit)="saveData()" [formGroup]="validationform">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name"
+            [ngClass]="{'is-invalid': submitted && form.name.errors}">
+          <div *ngIf="submitted && form.name.errors" class="invalid-feedback">
+            <span *ngIf="form.name.errors.required">Name is mendatory.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input class="form-control" id="email" placeholder="Enter email" formControlName="email"
+            [ngClass]="{'is-invalid': submitted && form.email.errors}">
+          <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+            <span *ngIf="form.email.errors.required">Email address is mendatory.</span>
+            <span *ngIf="form.email.errors.pattern">Please enter valid email.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Phone </label>
+          <input type="number" class="form-control" placeholder="Enter phone number" formControlName="phone"
+            [ngClass]="{'is-invalid': submitted && form.phone.errors}" minlength="10">
+          <div *ngIf="submitted && form.phone.errors" class="invalid-feedback">
+            <span *ngIf="form.phone.errors.required">Phone is mendatory.</span>
+            <span *ngIf="form.phone.errors.minlength">Phone number must be 10 characters.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Balance </label>
+          <input type="number" class="form-control" placeholder="Enter balance" formControlName="balance"
+            [ngClass]="{'is-invalid': submitted && form.balance.errors}">
+          <div *ngIf="submitted && form.balance.errors" class="invalid-feedback">
+            <span *ngIf="form.balance.errors.required">Balance is mendatory.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Date </label>
+          <input class="form-control" placeholder="Enter date" formControlName="date"
+            [ngClass]="{'is-invalid': submitted && form.date.errors}">
+          <div *ngIf="submitted && form.date.errors" class="invalid-feedback">
+            <span *ngIf="form.date.errors.required">Date is mendatory.</span>
+          </div>
+        </div>
+
+        <div class="text-right">
+          <button type="submit" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-danger ml-1" (click)="modal('close click')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template> -->
