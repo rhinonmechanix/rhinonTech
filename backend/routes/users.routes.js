@@ -13,6 +13,8 @@ router.get("/user-Profile", usersController.userProfile);
 // laptop upload
 router.post("/laptop", laptopController.createLaptop);
 router.get("/laptop", laptopController.getAllLaptops);
+router.get("/laptops/:id", laptopController.getLaptopById);
 router.delete("/laptops/:id", laptopController.deleteLaptopById);
+router.put('/laptops/:id', laptopController.updateLaptop);
 
 module.exports = router;

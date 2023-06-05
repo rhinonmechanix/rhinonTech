@@ -37,9 +37,8 @@ app.use(
       { url: "/users/user-profile", methods: ["POST"] },
       { url: "/users/otpLogin", methods: ["POST"] },
       { url: "/users/verifyOTP", methods: ["POST"] },
-      { url: "/users/laptop", methods: ["POST"] },
-      { url: "/users/laptop", methods: ["GET"] },
-      { url: "/users/laptops/:id", methods: ["DELETE"] },
+      { url: "/users/laptop", methods: ["GET","POST"] },
+      { url: "/users/laptops/:id", methods: ["GET", "PUT", "DELETE"] },
     ],
   })
 );

@@ -30,6 +30,25 @@ exports.getAllLaptops = (req, res, next) => {
   });
 };
 
+exports.getLaptopById = (req, res, next) => {
+  const { id } = req.params;
+  
+  laptopServices.getLaptopById(id, (error, laptop) => {
+    if (error) {
+      return next(error);
+    }
+    if (!laptop) {
+      return res.status(404).send({
+        message: 'Laptop not found',
+      });
+    }
+    return res.status(200).send({
+      message: 'Success',
+      data: laptop,
+    });
+  });
+};
+
 exports.deleteLaptopById = (req, res, next) => {
   const laptopId = req.params.id;
   laptopServices.deleteLaptopById(laptopId, (error, result) => {
@@ -43,6 +62,21 @@ exports.deleteLaptopById = (req, res, next) => {
     }
     return res.status(200).send({
       message: "Success",
+    });
+  });
+};
+
+exports.updateLaptop = (req, res, next) => {
+  const { id } = req.params;
+  const params = req.body;
+  
+  laptopServices.laptopUpdate(id, params, (error, results) => {
+    if (error) {
+      return next(error);
+    }
+    return res.status(200).send({
+      message: 'Success',
+      data: results,
     });
   });
 };
