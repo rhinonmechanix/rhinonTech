@@ -15,7 +15,6 @@ import { GeneralComponent } from './general/general.component';
 import { VideoComponent } from './video/video.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { SweetalertComponent } from './sweetalert/sweetalert.component';
-import { RangesliderComponent } from './rangeslider/rangeslider.component';
 
 const routes: Routes = [
     {
@@ -74,10 +73,6 @@ const routes: Routes = [
         path: 'sweet-alert',
         component: SweetalertComponent
     },
-    {
-        path: 'rangeslider',
-        component: RangesliderComponent
-    }
 ];
 
 @NgModule({

@@ -17,7 +17,6 @@ const routes: Routes = [
     { path: 'pages', loadChildren: () => import('./utility/utility.module').then(m => m.UtilityModule), canActivate: [AuthGuard]},
     { path: 'ui', loadChildren: () => import('./ui/ui.module').then(m => m.UIModule), canActivate: [AuthGuard]},
     { path: 'icons', loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule), canActivate: [AuthGuard]},
-    { path: 'charts', loadChildren: () => import('./chart/chart.module').then(m => m.ChartModule), canActivate: [AuthGuard]},
     { path: 'form', loadChildren: () => import('./form/form.module').then(m => m.FormModule), canActivate: [AuthGuard]},
     { path: 'tables', loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule), canActivate: [AuthGuard]},
     { path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule), canActivate: [AuthGuard]},

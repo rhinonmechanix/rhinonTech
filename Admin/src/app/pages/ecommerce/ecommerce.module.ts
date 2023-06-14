@@ -5,9 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // tslint:disable-next-line: max-line-length
 import { NgbAccordionModule, NgbNavModule, NgbTypeaheadModule, NgbPaginationModule, NgbCollapseModule, NgbTooltipModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ArchwizardModule } from 'angular-archwizard';
-import { Ng5SliderModule } from 'ng5-slider';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { DropzoneModule } from 'ngx-dropzone-wrapper';
 
 import { UiModule } from '../../shared/ui/ui.module';
 
@@ -31,7 +29,6 @@ import { EcommerceService } from './ecommerce.service';
   imports: [
     CommonModule,
     FormsModule,
-    DropzoneModule,
     ReactiveFormsModule,
     EcommerceRoutingModule,
     UiModule,
@@ -43,7 +40,6 @@ import { EcommerceService } from './ecommerce.service';
     NgbTooltipModule,
     NgbCollapseModule,
     NgSelectModule,
-    Ng5SliderModule,
     NgbModalModule,
   ],
   providers: [

@@ -29,7 +29,7 @@ export class EcommerceService {
   }
 
   deleteLaptop(id: any): Observable<any> {
-    const url = `${this.changeLaptop}/${id}`;
+    const url = this.changeLaptop + `/${id}`;
     let Httpheaders = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${accessToken}`); // Include the token in the headers
@@ -42,7 +42,7 @@ export class EcommerceService {
   }
 
   updateLaptop(id: any, data: any): Observable<any> {
-    const url = `${this.changeLaptop}/${id}`;
+    const url = this.changeLaptop + `/${id}`;
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${accessToken}`);
@@ -51,7 +51,7 @@ export class EcommerceService {
   }
 
   getLaptopById(id: any): Observable<any> {
-    const url = `${this.changeLaptop}/${id}`;
+    const url = this.changeLaptop + `/${id}`;
     const headers = new HttpHeaders()
       .set('Authorization', `Bearer ${accessToken}`);
 

@@ -3,8 +3,6 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 
 import { AuthenticationService } from '../services/auth.service';
 
-import { environment } from '../../../environments/environment';
-
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
     constructor(

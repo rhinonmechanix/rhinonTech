@@ -9,7 +9,6 @@ import {
   NgbTooltipModule, NgbPopoverModule, NgbPaginationModule, NgbNavModule, NgbAccordionModule,
   NgbCollapseModule, NgbButtonsModule
 } from '@ng-bootstrap/ng-bootstrap';
-import { Ng5SliderModule } from 'ng5-slider';
 
 import { UiRoutingModule } from './ui-routing.module';
 import { AlertsComponent } from './alerts/alerts.component';
@@ -26,16 +25,29 @@ import { GeneralComponent } from './general/general.component';
 import { VideoComponent } from './video/video.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { SweetalertComponent } from './sweetalert/sweetalert.component';
-import { RangesliderComponent } from './rangeslider/rangeslider.component';
 
 @NgModule({
   // tslint:disable-next-line: max-line-length
-  declarations: [AlertsComponent, ButtonsComponent, CardsComponent, CarouselComponent, DropdownsComponent, GridComponent, ImagesComponent, ModalsComponent, ProgressbarComponent, TypographyComponent, GeneralComponent, VideoComponent, TabsComponent, SweetalertComponent, RangesliderComponent],
+  declarations: [
+    AlertsComponent,
+    ButtonsComponent,
+    CardsComponent,
+    CarouselComponent,
+    DropdownsComponent,
+    GridComponent,
+    ImagesComponent,
+    ModalsComponent,
+    ProgressbarComponent,
+    TypographyComponent,
+    GeneralComponent,
+    VideoComponent,
+    TabsComponent,
+    SweetalertComponent
+  ],
   imports: [
     CommonModule,
     UiRoutingModule,
     FormsModule,
-    Ng5SliderModule,
     NgbAlertModule,
     NgbCarouselModule,
     NgbDropdownModule,
