@@ -1,0 +1,30 @@
+/* Position the Facebook and Instagram logos at the bottom right corner */
+.flex {
+    position: relative;
+  }
+  
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+  
+  .w-8 {
+    width: 2rem;
+  }
+  
+  .h-8 {
+    height: 2rem;
+  }
+  
+  /* Position the Facebook and Instagram logos */
+  .absolute {
+    position: absolute;
+  }
+  
+  .right-0 {
+    right: 0;
+  }
+  
+  .bottom-0 {
+    bottom: 0;
+  }
+  
